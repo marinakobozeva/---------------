@@ -1,5 +1,4 @@
 import Popup from "./Popup.js";
-
 export default class NewSubjectPopup extends Popup {
   constructor(selector, callback) {
     super(selector);
@@ -20,8 +19,8 @@ export default class NewSubjectPopup extends Popup {
     const subjectColor = this._popup.querySelector('.popup__input-color');
 
     return {
-      'popup__input-name': subjectName.value,
-      'popup__input-color': subjectColor.value,
+      'name': subjectName.value,
+      'color': subjectColor.value,
     }
   }
 }

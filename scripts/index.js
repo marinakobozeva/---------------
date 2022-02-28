@@ -1,27 +1,45 @@
 import NewSubjectPopup from "./NewSubjectPopup.js";
+import Subject from "./Subject.js";
+import Popup from "./Popup.js";
 import { initialSubjects } from "./InitialSubjects.js";
 
-const newSubjectBtn = document.querySelector('.subject__new-subject-button');
-const subjectPopup = new NewSubjectPopup('.page_popup_type_new-subject', (object) => {console.log(object)});
+// Объявление переменных
+const newSubjectBtn = document.querySelector('.subject__new-subject-button'); // Кнопка 'добавить предмет'
+const subjectPopup = new NewSubjectPopup('.page_popup_type_new-subject', (object) => {addSubject(object)});
 subjectPopup.generate();
 
-const subjectsContainer = document.querySelector('.subject__container');
-const subjectTemplate = document.querySelector('.subject__template').content;
+const deleteScheduleBtn = document.querySelector('.schedule__button-clear'); // Кнопка 'очистить расписание'
+const deletePopup = new Popup('.page_popup_type_delete');
+deletePopup.generate();
 
+const subjectsContainer = document.querySelector('.subject__container');
+
+// Инициализация изначальных предметов
 function subjectsRender() {
   for (let item of initialSubjects) {
-    let subject = subjectTemplate.querySelector('.subject__name').cloneNode(true);
-    subject.querySelector('.subject__name-title').textContent = item['popup__input-name'];
-    subject.style.backgroundColor = item['popup__input-color'];
-    subjectsContainer.append(subject);
+    addSubject(item);
   }
 }
 
+subjectsRender();
+
+// Удаление предмета
+function deleteSubject(subject) {
+  subject.delete();
+}
+
+function addSubject(item) {
+  let subject = new Subject(item.name, item.color, '.subject__template', deleteSubject);
+  subjectsContainer.append(subject.render());
+  subject.setEventListeners();
+}
+
+// Клик по кнопке 'Добавить предмет'
 newSubjectBtn.addEventListener('click', () => {
   subjectPopup.open();
 })
 
-subjectsRender();
+
 
 console.log(subjectsContainer);
 
@@ -46,7 +64,10 @@ for (let cell of scheduleCells) {
   })
 }
 
-
+// Клик по кнопке 'Добавить предмет'
+deleteScheduleBtn.addEventListener('click', () => {
+  deletePopup.open()
+});
 
 
 
