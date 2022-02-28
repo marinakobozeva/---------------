@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Marina Kobozeva">
+  <link rel="stylesheet" href="./index1.css">
+  <title>Shedule</title>
+</head>
+<body>
+  <div class="page">
+    <div class="page__container">
+      <h1 class="page__title">Расписание занятий</h1>
+      <div class="subject">
+        <div class="subject__container"></div>
+        <button class="subject__new-subject-button">Добавить предмет</button>
+      </div>
+
+      <div class="schedule__container">
+        <div class="schedule__days-container">
+          <div class="schedule__day corner"></div>
+          <div class="schedule__day">Понедельник</div>
+          <div class="schedule__day">Вторник</div>
+          <div class="schedule__day">Среда</div>
+          <div class="schedule__day">Четверг</div>
+          <div class="schedule__day">Пятница</div>
+          <div class="schedule__day">Суббота</div>
+          <div class="schedule__day">Воскресенье</div>
+        </div>
+        <div class="schedule__time-container">
+          <div class="schedule__part">
+            <div class="schedule__time">8:30-9:15</div>
+            <div class="schedule__subject"></div>
+            <div class="schedule__subject"></div>
+            <div class="schedule__subject"></div>
+            <div class="schedule__subject"></div>
+            <div class="schedule__subject"></div>
+            <div class="schedule__subject"></div>
+            <div class="schedule__subject"></div>
+          </div>
+          <div class="schedule__part">
+            <div class="schedule__time">9:30-10:15</div>
+            <div class="schedule__subject"></div>
+            <div class="schedule__subject"></div>
+            <div class="schedule__subject"></div>
+            <div class="schedule__subject"></div>
+            <div class="schedule__subject"></div>
+            <div class="schedule__subject"></div>
+            <div class="schedule__subject"></div>
+          </div>
+
+          <div class="schedule__part">
+            <div class="schedule__time">10:30-11:15</div>
+            <div class="schedule__subject"></div>
+            <div class="schedule__subject"></div>
+            <div class="schedule__subject"></div>
+            <div class="schedule__subject"></div>
+            <div class="schedule__subject"></div>
+            <div class="schedule__subject"></div>
+            <div class="schedule__subject"></div>
+          </div>
+
+          <div class="schedule__part">
+            <div class="schedule__time">11:30-12:15</div>
+            <div class="schedule__subject"></div>
+            <div class="schedule__subject"></div>
+            <div class="schedule__subject"></div>
+            <div class="schedule__subject"></div>
+            <div class="schedule__subject"></div>
+            <div class="schedule__subject"></div>
+            <div class="schedule__subject"></div>
+          </div>
+
+          <div class="schedule__part">
+            <div class="schedule__time">12:30-13:15</div>
+            <div class="schedule__subject"></div>
+            <div class="schedule__subject"></div>
+            <div class="schedule__subject"></div>
+            <div class="schedule__subject"></div>
+            <div class="schedule__subject"></div>
+            <div class="schedule__subject"></div>
+            <div class="schedule__subject"></div>
+          </div>
+
+          <div class="schedule__part">
+            <div class="schedule__time">13:25-14:10</div>
+            <div class="schedule__subject"></div>
+            <div class="schedule__subject"></div>
+            <div class="schedule__subject"></div>
+            <div class="schedule__subject"></div>
+            <div class="schedule__subject"></div>
+            <div class="schedule__subject"></div>
+            <div class="schedule__subject"></div>
+          </div>
+
+          <div class="schedule__part">
+            <div class="schedule__time">14:25-15:10</div>
+            <div class="schedule__subject"></div>
+            <div class="schedule__subject"></div>
+            <div class="schedule__subject"></div>
+            <div class="schedule__subject"></div>
+            <div class="schedule__subject"></div>
+            <div class="schedule__subject"></div>
+            <div class="schedule__subject"></div>
+          </div>
+
+          <div class="schedule__part">
+            <div class="schedule__time">15:25-16:10</div>
+            <div class="schedule__subject"></div>
+            <div class="schedule__subject"></div>
+            <div class="schedule__subject"></div>
+            <div class="schedule__subject"></div>
+            <div class="schedule__subject"></div>
+            <div class="schedule__subject"></div>
+            <div class="schedule__subject"></div>
+          </div>
+        </div>
+        <button class="schedule__button-clear">Очистить расписание</button>
+      </div>
+
+      <div class="kanban">
+        <h2 class="kanban__title">Список дел</h2>
+        <div class="kanban__container">
+          <div class="kanban__column kanban__column_type_to-do">
+            <div class="kanban__column-title">Выполнить</div>
+            <div class="kanban__column-item">
+              <p class="kanban__item-title">Пример</p>
+              <button type="button" class="kanban__delete-button"><img src="./vendor/images/trash.png" alt="Корзина"></button>
+            </div>
+            <div class="kanban__transfer-item">Перенести задание</div>
+            <button class="kanban__column-button">Добавить задание</button>
+          </div>
+          <div class="kanban__column kanban__column_type_in-progress">
+            <div class="kanban__column-title">В работе</div>
+            <div class="kanban__transfer-item">Перенести задание</div>
+            <button class="kanban__column-button">Добавить задание</button>
+          </div>
+          <div class="kanban__column kanban__column_type_done">
+            <div class="kanban__column-title">Сделано</div>
+            <div class="kanban__transfer-item">Перенести задание</div>
+            <button class="kanban__column-button">Добавить задание</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page__popup page_popup_type_new-subject popup__hidden">
+      <div class="popup__container">
+        <img class="popup__close-icon" src="./vendor/images/close-icon.png" alt="Крестик">
+        <h2 class="popup__title">Новый предмет</h2>
+        <div class="popup__input">
+          <input class="popup__input-name" type="text" placeholder="Введите название предмета">
+          <input class="popup__input-color" type="color">
+        </div>
+        <button class="popup__add-button">Добавить</button>
+      </div>
+    </div>
+    <div class="page__popup page_popup_type_task popup__hidden">
+      <div class="popup__container">
+        <img class="popup__close-icon" src="./vendor/images/close-icon.png" alt="Крестик">
+        <h2 class="popup__title">Новое задание</h2>
+        <div class="popup__input">
+          <input class="popup__input-task" type="text" placeholder="Введите название задания">
+        </div>
+        <button class="popup__add-button">Добавить</button>
+      </div>
+    </div>
+  </div>
+  <template class="subject__template">
+    <div class="subject__name">
+      <p class="subject__name-title"></p>
+      <button type="button" class="subject__delete-button">
+        <img class="subject__trash-img" src="./vendor/images/trash.png" alt="Корзина">
+      </button>
+    </div>
+  </template>
+  <script type="module" src="./scripts/InitialSubjects.js"></script>
+  <script type="module" src="./scripts/Popup.js"></script>
+  <script type="module" src="./scripts/NewSubjectPopup.js"></script>
+  <script type="module" src="./scripts/index.js"></script>
+</body>
+</html>
