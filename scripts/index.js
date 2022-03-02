@@ -29,7 +29,7 @@ function deleteSubject(subject) {
 }
 
 function addSubject(item) {
-  let subject = new Subject(item.name, item.color, '.subject__template', deleteSubject);
+  let subject = new Subject(item.name, item.color, '.subject__template', deleteSubject, selectSubject);
   subjectsContainer.append(subject.render());
   subject.setEventListeners();
 }
@@ -38,10 +38,6 @@ function addSubject(item) {
 newSubjectBtn.addEventListener('click', () => {
   subjectPopup.open();
 })
-
-
-
-console.log(subjectsContainer);
 
 let scheduleCells = document.querySelectorAll('.schedule__subject');
 console.log(scheduleCells);
@@ -69,7 +65,12 @@ deleteScheduleBtn.addEventListener('click', () => {
   deletePopup.open()
 });
 
+// Клик по предмету
+function selectSubject(subject) {
+  // subject.classList.toggle('selected')
+  console.log(subject);
 
+}
 
 
 

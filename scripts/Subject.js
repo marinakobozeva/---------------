@@ -1,9 +1,10 @@
 export default class Subject {
-  constructor(name, color, selector, handleDelete) {
+  constructor(name, color, selector, handleDelete, handleSelect) {
     this._name = name;
     this._color = color;
     this._selector = selector;
     this._handleDelete = handleDelete;
+    this._handleSelect = handleSelect;
   }
 
   render() {
@@ -21,6 +22,7 @@ export default class Subject {
   setEventListeners() {
     const subjectDeleteBtn = this._subject.querySelector('.subject__delete-button');
     subjectDeleteBtn.addEventListener('click', () => {this._handleDelete(this)});
+    this._subject.addEventListener('click', () => {this._handleSelect(this)});
   }
 
 }
