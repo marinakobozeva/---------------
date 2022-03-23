@@ -25,4 +25,8 @@ export default class Subject {
     this._subject.addEventListener('click', () => {this._handleSelect(this)});
   }
 
+  getProperties() {
+    return { name: this._name, color: this._color}
+  }
+
 }

@@ -1,5 +1,5 @@
 @import url(./vendor/normalize.css);
-@import url(./vendor/font.css);
+@import url(./vendor/fonts/font.css);
 
 .page {
   color: #081357;
@@ -160,6 +160,7 @@
   box-sizing: border-box;
   border-radius: 100px;
   background-color: #fff;
+  color: #fff;
   padding: 0 20px;
   height: 45px;
   display: flex;
@@ -189,106 +190,6 @@
 }
 
 .schedule__button-clear:hover {
-  cursor: pointer;
-  border: 2px solid #76FAC1;
-}
-
-.kanban {
-  width: 90%;
-  background-color: #E3F7F7;
-  margin: 0 auto;
-}
-
-.kanban__container {
-  display: grid;
-  grid-template-columns: repeat(3, 2fr);
-  grid-template-rows: auto;
-  grid-column-gap: 10px;
-  grid-row-gap: 10px;
-  width: 100%;
-  margin-bottom: 20px;
-}
-
-.kanban__title {
-  padding: 0;
-  margin: 10px 0;
-  text-align: center;
-  font-weight: 800;
-}
-
-.kanban__column-title {
-  box-sizing: border-box;
-  border-radius: 100px;
-  background-color: #54678C;
-  color:#E5E5E5;
-  padding: 0 20px;
-  height: 45px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 10px;
-  font-weight: 600;
-}
-
-.kanban__column-item {
-  box-sizing: border-box;
-  border-radius: 100px;
-  background-color: #fff;
-  padding: 0 20px;
-  margin-bottom: 10px;
-  height: 45px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.kanban__column-item:hover {
-  cursor: pointer;
-  border: 2px solid #76FAC1;
-}
-
-.kanban__item-title {
-  overflow: hidden;
-	text-overflow: ellipsis;
-  max-width: 350px;
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-.kanban__transfer-item {
-  border: 1px dashed #081357;
-  box-sizing: border-box;
-  border-radius: 100px;
-  background-color: #E3F7F7;
-  padding: 0 20px;
-  margin-bottom: 10px;
-  height: 45px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
-.kanban__transfer-item:hover {
-  cursor: pointer;
-  border: 2px dashed #76FAC1;
-}
-
-.kanban__column-button {
-  box-sizing: border-box;
-  border-radius: 100px;
-  background-color: #E5E5E5;
-  border: none;
-  padding: 0 20px;
-  height: 45px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
-.kanban__column-button:hover {
   cursor: pointer;
   border: 2px solid #76FAC1;
 }

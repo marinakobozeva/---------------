@@ -1,4 +1,7 @@
+
+import ClearSchedulePopup from "./ClearSchedulePopup.js";
 import NewSubjectPopup from "./NewSubjectPopup.js";
+import ScheduleCell from "./ScheduleCell.js";
 import Subject from "./Subject.js";
 import Popup from "./Popup.js";
 import { initialSubjects } from "./InitialSubjects.js";
@@ -9,10 +12,13 @@ const subjectPopup = new NewSubjectPopup('.page_popup_type_new-subject', (object
 subjectPopup.generate();
 
 const deleteScheduleBtn = document.querySelector('.schedule__button-clear'); // Кнопка 'очистить расписание'
-const deletePopup = new Popup('.page_popup_type_delete');
+const deletePopup = new ClearSchedulePopup('.page_popup_type_delete', clearSchedule);
 deletePopup.generate();
 
 const subjectsContainer = document.querySelector('.subject__container');
+const scheduleContainer = [];
+
+let selectedSubject = null;
 
 // Инициализация изначальных предметов
 function subjectsRender() {
@@ -39,27 +45,6 @@ newSubjectBtn.addEventListener('click', () => {
   subjectPopup.open();
 })
 
-let scheduleCells = document.querySelectorAll('.schedule__subject');
-console.log(scheduleCells);
-
-let container = Array.from(subjectsContainer);
-let color = 'white';
-
-function changeColor(item) {
-  item.addEventListener('click', () => {
-    console.log(item.style.backgroundColor);
-  })
-}
-for (let subject of container) {
-  subject.addEventListener('click', changeColor)
-}
-
-for (let cell of scheduleCells) {
-  cell.addEventListener('click', () => {
-    cell.style.backgroundColor = color;
-  })
-}
-
 // Клик по кнопке 'Добавить предмет'
 deleteScheduleBtn.addEventListener('click', () => {
   deletePopup.open()
@@ -67,12 +52,45 @@ deleteScheduleBtn.addEventListener('click', () => {
 
 // Клик по предмету
 function selectSubject(subject) {
-  // subject.classList.toggle('selected')
-  console.log(subject);
-
+  if (selectedSubject === null) {
+    selectedSubject = subject;
+  } else if (selectedSubject === subject) {
+    selectedSubject = null;
+  } else if (selectedSubject !== subject) {
+    selectedSubject._subject.classList.toggle('selected');
+    selectedSubject = subject;
+  }
+  subject._subject.classList.toggle('selected');
 }
 
+// Клик по ячейке
+function clickOnCell(cell) {
+  if (selectedSubject === null) {
+    return null;
+  }
+  cell.setProperties(selectedSubject.getProperties());
+}
 
+//Двойной клик по ячейке
+function dblClickOnCell(cell) {
+  cell.resetDefault();
+}
+
+// Отрисовка ячеек расписания
+const scheduleParts = document.querySelectorAll('.schedule__part');
+for (let part of scheduleParts) {
+  for (let i = 0; i < 7; i++) {
+    let cell = new ScheduleCell('.schedule__cell-template', clickOnCell, dblClickOnCell);
+    part.append(cell.render());
+    cell.setEventListeners();
+    scheduleContainer.push(cell);
+  }
+}
+
+// Очистка расписания
+function clearSchedule() {
+  scheduleContainer.forEach((item) => {item.resetDefault()});
+}
 
 
 
